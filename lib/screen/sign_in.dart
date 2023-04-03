@@ -1,3 +1,4 @@
+import 'package:firebase_sign_register/screen/sign_up.dart';
 import 'package:flutter/material.dart';
 
 class SignInPage extends StatelessWidget {
@@ -28,10 +29,10 @@ class SignInPage extends StatelessWidget {
             ),
             SizedBox(height: 10,),
             TextFormField(
-              controller: email,
+              controller: password,
               keyboardType: TextInputType.visiblePassword,
               decoration: InputDecoration(
-                hintText: "Enter your email",
+                hintText: "Enter your password",
                 border: OutlineInputBorder(),
               ),
               validator: (controller){},
@@ -47,7 +48,9 @@ class SignInPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
               Text("Don't have an account? "),
-              TextButton(onPressed: (){}, child: Text("Sign Up"))
+              TextButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpPage()));
+              }, child: Text("Sign Up"))
             ],)
           ],
         ),
