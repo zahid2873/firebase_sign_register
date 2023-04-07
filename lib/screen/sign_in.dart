@@ -1,3 +1,4 @@
+import 'package:firebase_sign_register/helpers/my_helpers.dart';
 import 'package:firebase_sign_register/screen/sign_up.dart';
 import 'package:flutter/material.dart';
 
@@ -42,7 +43,11 @@ class SignInPage extends StatelessWidget {
               height: 55,
               minWidth: double.infinity,
               color: Colors.blue,
-              onPressed: (){},child: Text("Sign In"),),
+              onPressed: (){
+                var e = email.text;
+                var p = password.text;
+                var obj = MyHelper().signIn(e, p, context);
+              },child: Text("Sign In"),),
             SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

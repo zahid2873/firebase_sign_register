@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 
 class MyHelper{
 
-  Future signUp(emailad,passwordas,context)async{
+  Future signUp(email,password,context)async{
 
     try {
       final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: emailad,
-        password: passwordas,
+        email: email,
+        password: password,
       );
       if(credential.user!.uid.isNotEmpty){
         Navigator.push(context, MaterialPageRoute(builder: (context)=>SignInPage()));
@@ -32,12 +32,12 @@ class MyHelper{
   }
 
 
-  Future signIn(emailad,passwordas,context)async{
+  Future signIn(email,password,context)async{
 
     try {
       final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailad,
-        password: passwordas,
+        email: email,
+        password: password,
       );
       if(credential.user!.uid.isNotEmpty){
         Navigator.push(context, MaterialPageRoute(builder: (context)=>RegistrationPage()));
