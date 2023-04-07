@@ -46,7 +46,8 @@ class SignUpPage extends StatelessWidget {
               onPressed: (){
                 var e = _email.text;
                 var p = _password.text;
-                var obj = MyHelper().signUp(e, p, context);
+                print(e);
+               var obj =  MyHelper().signUp(e, p, context);
 
               },child: Text("Sign up"),),
             SizedBox(height: 10,),
