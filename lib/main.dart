@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_sign_register/screen/register.dart';
 import 'package:firebase_sign_register/screen/sign_up.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: SignUpPage(),
+      home: RegistrationPage(),
     );
   }
 }

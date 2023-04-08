@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class RegistrationPage extends StatelessWidget {
@@ -6,6 +7,18 @@ class RegistrationPage extends StatelessWidget {
   TextEditingController _lastName = TextEditingController();
   TextEditingController _phone = TextEditingController();
   TextEditingController _email = TextEditingController();
+
+  Future addUser()async{
+    CollectionReference users = await FirebaseFirestore.instance.collection('registrationInfo');
+
+    users.add(({
+      "email": _email.text,
+      "first_name" : _firstName.text,
+      "last_name": _lastName.text,
+      "phone":_phone.text,
+
+    }));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +50,7 @@ class RegistrationPage extends StatelessWidget {
               ),
               validator: (controller){},
             ),
+            SizedBox(height: 10,),
             TextFormField(
               controller: _phone,
               keyboardType: TextInputType.phone,
@@ -61,7 +75,9 @@ class RegistrationPage extends StatelessWidget {
               height: 55,
               minWidth: double.infinity,
               color: Colors.blue,
-              onPressed: (){},child: Text("Sign up"),),
+              onPressed: (){
+                addUser();
+              },child: Text("Register"),),
             SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
